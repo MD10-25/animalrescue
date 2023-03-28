@@ -10,7 +10,14 @@ const app = express()
 // import db-connection
 require("./db")
 
+// serve docs
+app.use("/", express.static("docs"))
+
+// accept request from anywhere
 app.use(cors())
+
+// expect incoming data to be json
+app.use(express.json())
 
 // routes
 app.use("/api/v1", animals)
